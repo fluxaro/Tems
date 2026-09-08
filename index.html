@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Emmanuel (Surname Pending 💖)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Refined Obsidian-Espresso & Radiant Sandstone Palette */
+    --bg-base: #0B0907;
+    --bg-surface: #14100C;
+    --card-glass: rgba(22, 17, 12, 0.76);
+    --card-border: rgba(215, 203, 190, 0.16);
+    --card-border-glow: rgba(215, 203, 190, 0.38);
+
+    --sandstone: #D7CBBE;
+    --text-primary: #FAF7F2;
+    --text-muted: #9C8E7E;
+    --text-dim: #645A4E;
+
+    --gold-accent: #DEB586;
+    --gold-glow: rgba(222, 181, 134, 0.28);
+    --shadow-soft: 0 24px 50px rgba(0, 0, 0, 0.75);
+    --shadow-card: 0 16px 36px rgba(0, 0, 0, 0.6);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--bg-base);
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.65;
+  }
+
+  ::selection {
+    background: var(--sandstone);
+    color: var(--bg-base);
+  }
+
+  /* Ambient Mesh Lighting */
+  .ambient-mesh {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.22;
+    animation: orbFloat 22s infinite ease-in-out alternate;
+  }
+
+  .orb-1 {
+    width: 48vw;
+    height: 48vw;
+    top: -10vw;
+    left: -10vw;
+    background: radial-gradient(circle, #3D271A 0%, transparent 70%);
+  }
+
+  .orb-2 {
+    width: 55vw;
+    height: 55vw;
+    bottom: -10vw;
+    right: -10vw;
+    background: radial-gradient(circle, #22160E 0%, transparent 70%);
+    animation-delay: -8s;
+    animation-duration: 26s;
+  }
+
+  .cursor-spotlight {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(215, 203, 190, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: opacity 0.5s ease;
+  }
+
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.032;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  @keyframes orbFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(3vw, 4vh) scale(1.06); }
+    100% { transform: translate(-4vw, 2vh) scale(0.96); }
+  }
+
+  /* Top Navigation Bar */
+  .top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 18px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 60;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: linear-gradient(180deg, rgba(11, 9, 7, 0.85) 0%, transparent 100%);
+    border-bottom: 1px solid rgba(215, 203, 190, 0.07);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-sand);
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-btn {
+    background: rgba(24, 18, 12, 0.6);
+    border: 1px solid var(--card-border);
+    color: var(--text-sand);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-btn:hover {
+    background: var(--bg-surface);
+    border-color: var(--sandstone);
+    color: #FFF;
+    transform: translateY(-2px);
+  }
+
+  .nav-btn.active {
+    background: var(--sandstone);
+    color: var(--bg-base);
+    border-color: var(--sandstone);
+    font-weight: 600;
+  }
+
+  /* Scroller & Story Sections */
+  .scroller {
+    height: 100dvh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    position: relative;
+    z-index: 10;
+    scrollbar-width: none;
+  }
+
+  .scroller::-webkit-scrollbar {
+    display: none;
+  }
+
+  .screen {
+    min-height: 100dvh;
+    height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 90px 24px 60px;
+    text-align: center;
+  }
+
+  /* Stage Nav Dots */
+  .stage-nav {
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 50;
+    padding: 14px 10px;
+    background: rgba(18, 14, 10, 0.55);
+    backdrop-filter: blur(16px);
+    border-radius: 40px;
+    border: 1px solid rgba(215, 203, 190, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .stage-dot {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(215, 203, 190, 0.25);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .stage-dot::after {
+    content: attr(data-label);
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    background: #18120C;
+    color: var(--text-sand);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+    transition: all 0.25s ease;
+  }
+
+  .stage-dot:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .stage-dot.active {
+    background: var(--sandstone);
+    height: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px var(--gold-glow);
+  }
+
+  /* Reveal Animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .screen.in-view .reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal.d1 { transition-delay: 0.08s; }
+  .reveal.d2 { transition-delay: 0.22s; }
+  .reveal.d3 { transition-delay: 0.38s; }
+  .reveal.d4 { transition-delay: 0.54s; }
+
+  /* Minimalist Kicker Badge */
+  .kicker {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sandstone);
+    background: rgba(28, 21, 15, 0.6);
+    padding: 6px 18px;
+    border-radius: 30px;
+    border: 1px solid rgba(215, 203, 190, 0.18);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+  }
+
+  .kicker-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--sandstone);
+  }
+
+  /* ==========================================================
+     SECTION 1: HERO (THE IDENTITY MYSTERY)
+     ========================================================== */
+  .hero-wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .hero-headline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 6.8vw, 4.8rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 22px;
+  }
+
+  .hero-headline .shimmer-name {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F2 25%, #D7CBBE 55%, #DEB586 85%, #FFFFFF 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmerText 7s infinite linear;
+    display: inline-block;
+  }
+
+  @keyframes shimmerText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .hero-subheadline {
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    color: var(--text-sand);
+    line-height: 1.7;
+    margin-bottom: 18px;
+    font-weight: 300;
+  }
+
+  .hero-banter-card {
+    background: linear-gradient(150deg, rgba(26, 19, 14, 0.7) 0%, rgba(11, 9, 7, 0.88) 100%);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 22px 28px;
+    font-size: 0.94rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin: 0 auto;
+    max-width: 580px;
+    backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .hero-banter-card strong {
+    color: var(--text-primary);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .scroll-hint:hover {
+    color: var(--sandstone);
+  }
+
+  .scroll-hint svg {
+    stroke: currentColor;
+    animation: dipDown 1.8s infinite ease-in-out;
+  }
+
+  @keyframes dipDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+
+  /* ==========================================================
+     SECTION 2: THE EVOLUTION (SIDE-BY-SIDE)
+     ========================================================== */
+  .evolution-wrapper {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .evolution-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .evolution-subhead {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 36px;
+  }
+
+  .evolution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    width: 100%;
+  }
+
+  .evolution-card {
+    background: linear-gradient(150deg, #18120C 0%, #0E0A07 100%);
+    border: 1px solid rgba(215, 203, 190, 0.2);
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+  }
+
+  .evolution-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--sandstone);
+  }
+
+  .stage-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sandstone);
+    background: rgba(215, 203, 190, 0.1);
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(215, 203, 190, 0.15);
+    margin-bottom: 18px;
+  }
+
+  .photo-frame {
+    width: 100%;
+    aspect-ratio: 4/5;
+    max-width: 280px;
+    background: #080605;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(215, 203, 190, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Placeholder Style for src="#" */
+  .photo-placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #241B13 0%, #0B0907 85%);
+  }
+
+  .photo-placeholder-content svg {
+    color: var(--sandstone);
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+
+  .photo-placeholder-content span {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Hide raw broken image icon if src="#" */
+  .photo-frame img[src="#"] {
+    display: none;
+  }
+
+  .photo-frame img:not([src="#"]) + .photo-placeholder-content {
+    display: none;
+  }
+
+  .upload-photo-btn {
+    margin-top: 14px;
+    background: rgba(215, 203, 190, 0.1);
+    border: 1px solid rgba(215, 203, 190, 0.22);
+    color: var(--text-sand);
+    padding: 6px 14px;
+    border-radius: 14px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .upload-photo-btn:hover {
+    background: var(--sandstone);
+    color: var(--bg-base);
+  }
+
+  .upload-photo-btn input {
+    display: none;
+  }
+
+  .evolution-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-top: 18px;
+    line-height: 1.3;
+  }
+
+  .evolution-card p {
+    font-size: 0.86rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+    line-height: 1.55;
+  }
+
+  /* ==========================================================
+     SECTION 3: TRIBUTE / THE REAL TALK
+     ========================================================== */
+  .tribute-wrapper {
+    max-width: 680px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .tribute-theme {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: clamp(1.8rem, 4.2vw, 2.8rem);
+    color: var(--sandstone);
+    margin-bottom: 24px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .tribute-card {
+    background: linear-gradient(155deg, rgba(26, 19, 14, 0.75) 0%, rgba(12, 9, 6, 0.92) 100%);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 38px 40px 30px;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(22px);
+    position: relative;
+  }
+
+  .quote-glyph {
+    font-family: 'Fraunces', serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: rgba(215, 203, 190, 0.16);
+    margin-bottom: -10px;
+    user-select: none;
+  }
+
+  .tribute-body {
+    font-size: clamp(1.04rem, 2vw, 1.2rem);
+    line-height: 1.8;
+    color: var(--text-primary);
+    font-weight: 300;
+    margin-bottom: 26px;
+  }
+
+  .tribute-body .highlight-phrase {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--sandstone);
+    background: linear-gradient(120deg, rgba(215, 203, 190, 0.14) 0%, rgba(215, 203, 190, 0.03) 100%);
+    padding: 2px 8px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  .tribute-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(215, 203, 190, 0.1);
+    padding-top: 18px;
+  }
+
+  .tribute-status {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .react-love-btn {
+    background: rgba(30, 22, 16, 0.6);
+    border: 1px solid var(--card-border);
+    color: var(--text-primary);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.84rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .react-love-btn:hover {
+    background: var(--sandstone);
+    color: var(--bg-base);
+    transform: scale(1.04);
+  }
+
+  .floating-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 100;
+    font-size: 1.4rem;
+    animation: floatHeartUp 2.2s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+  }
+
+  @keyframes floatHeartUp {
+    0% { opacity: 1; transform: translateY(0) scale(0.6) rotate(0deg); }
+    100% { opacity: 0; transform: translateY(-160px) scale(1.3) rotate(20deg); }
+  }
+
+  /* ==========================================================
+     SECTION 4: THE FINALE & DROP-OFF (ACCOUNT CTA)
+     ========================================================== */
+  .finale-wrapper {
+    max-width: 580px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+  }
+
+  .confetti-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .finale-sendoff {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 6.2vw, 4.2rem);
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+
+  .finale-sendoff .glow-name {
+    background: linear-gradient(135deg, #FFF 0%, var(--sandstone) 50%, var(--gold-accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 4px 18px rgba(222, 181, 134, 0.3));
+  }
+
+  .finale-sub {
+    font-size: 0.96rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  /* The Stylish Form Card */
+  .account-form-card {
+    background: linear-gradient(145deg, #18120C 0%, #0D0A07 100%);
+    border: 1px solid rgba(215, 203, 190, 0.22);
+    border-radius: 24px;
+    padding: 34px 32px;
+    box-shadow: var(--shadow-soft), 0 0 50px rgba(0, 0, 0, 0.8);
+    text-align: left;
+    backdrop-filter: blur(20px);
+    position: relative;
+  }
+
+  .card-header-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-accent);
+    margin-bottom: 6px;
+  }
+
+  .account-form-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.35rem;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+
+  .input-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .input-field-group label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+  }
+
+  .input-field-group input {
+    background: rgba(9, 7, 5, 0.85);
+    border: 1px solid rgba(215, 203, 190, 0.18);
+    border-radius: 12px;
+    padding: 11px 14px;
+    color: var(--text-primary);
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color 0.25s ease;
+  }
+
+  .input-field-group input:focus {
+    border-color: var(--sandstone);
+  }
+
+  .quick-bank-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .chip-btn {
+    background: rgba(215, 203, 190, 0.08);
+    border: 1px solid rgba(215, 203, 190, 0.15);
+    color: var(--text-sand);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .chip-btn:hover, .chip-btn.active {
+    background: var(--sandstone);
+    color: var(--bg-base);
+    border-color: var(--sandstone);
+  }
+
+  .submit-credit-btn {
+    width: 100%;
+    margin-top: 18px;
+    background: linear-gradient(135deg, var(--sandstone) 0%, var(--gold-accent) 100%);
+    color: var(--bg-base);
+    border: none;
+    padding: 14px 20px;
+    border-radius: 14px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(215, 203, 190, 0.25);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .submit-credit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(222, 181, 134, 0.4);
+  }
+
+  /* Active Display State */
+  .display-vault-box {
+    display: none;
+  }
+
+  .display-vault-box.active {
+    display: block;
+  }
+
+  .spec-summary {
+    background: rgba(10, 8, 6, 0.75);
+    border: 1px solid rgba(215, 203, 190, 0.12);
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin: 18px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.86rem;
+  }
+
+  .spec-key {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+  }
+
+  .spec-val {
+    color: var(--text-sand);
+    font-weight: 600;
+    font-family: monospace, sans-serif;
+  }
+
+  .vault-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .vault-btn {
+    flex: 1;
+    background: rgba(28, 20, 14, 0.6);
+    border: 1px solid var(--card-border);
+    color: var(--text-sand);
+    padding: 11px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .vault-btn.primary {
+    background: var(--sandstone);
+    color: var(--bg-base);
+    border-color: var(--sandstone);
+  }
+
+  .vault-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Toast Notification */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--sandstone);
+    color: var(--bg-base);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 100;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .top-nav {
+      padding: 16px 20px;
+    }
+    .stage-nav {
+      right: 12px;
+      padding: 10px 6px;
+    }
+    .stage-dot::after {
+      display: none;
+    }
+    .screen {
+      padding: 85px 18px 50px;
+      height: auto;
+      min-height: 100dvh;
+      scroll-snap-align: none;
+    }
+    .scroller {
+      scroll-snap-type: none;
+    }
+    .evolution-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .photo-frame {
+      max-width: 240px;
+    }
+    .tribute-card {
+      padding: 28px 22px;
+    }
+    .account-form-card {
+      padding: 26px 20px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      transition: none;
+      opacity: 1;
+      transform: none;
+    }
+    .ambient-orb, .shimmer-name, .scroll-hint svg {
+      animation: none;
+    }
+  }
+
+  /* Audio Visualizer Bars */
+  .sound-bars {
+    display: none;
+    align-items: flex-end;
+    gap: 2.5px;
+    height: 12px;
+  }
+
+  .nav-btn.active .sound-bars {
+    display: flex;
+  }
+
+  .nav-btn.active #soundIcon {
+    display: none;
+  }
+
+  .sound-bars span {
+    width: 2.5px;
+    background: var(--bg-base);
+    border-radius: 1px;
+    animation: soundBarDance 0.8s infinite ease-in-out alternate;
+  }
+
+  .sound-bars span:nth-child(1) { height: 4px; animation-delay: 0.1s; }
+  .sound-bars span:nth-child(2) { height: 12px; animation-delay: 0.35s; }
+  .sound-bars span:nth-child(3) { height: 7px; animation-delay: 0.2s; }
+  .sound-bars span:nth-child(4) { height: 10px; animation-delay: 0.45s; }
+
+  @keyframes soundBarDance {
+    0% { height: 3px; }
+    100% { height: 12px; }
+  }
+
+  .hero-music-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    background: rgba(215, 203, 190, 0.12);
+    border: 1px solid rgba(215, 203, 190, 0.25);
+    color: var(--text-sand);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .hero-music-cta:hover {
+    background: var(--sandstone);
+    color: var(--bg-base);
+    transform: scale(1.04);
+  }
+
+  .hero-music-cta svg {
+    stroke: currentColor;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Ambient Lighting -->
+<div class="ambient-mesh">
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+</div>
+
+<!-- Grain Texture -->
+<div class="grain"></div>
+
+<!-- Cursor Spotlight -->
+<div class="cursor-spotlight" id="spotlight"></div>
+
+<!-- Top Navigation -->
+<header class="top-nav">
+  <div class="nav-logo">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+    </svg>
+    <span>FOR EMMANUEL • VOL. 2026</span>
+  </div>
+  <div class="nav-actions">
+    <!-- Audio Elements -->
+    <audio id="bgMusic" src="happy-birthday.wav" loop preload="auto"></audio>
+    <audio id="celebrateAudio" src="celebrate.wav" preload="auto"></audio>
+
+    <button class="nav-btn" id="audioToggleBtn" title="Play birthday track" aria-label="Toggle birthday music">
+      <div class="sound-bars" id="soundBars">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="soundIcon">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      </svg>
+      <span id="audioStatusText">Play Birthday Song</span>
+    </button>
+    <button class="nav-btn" id="headerCelebrateBtn" aria-label="Celebrate">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"></path>
+      </svg>
+      <span>Celebrate</span>
+    </button>
+  </div>
+</header>
+
+<!-- Floating Stage Navigation Pill -->
+<nav class="stage-nav" id="stageNav" aria-label="Story navigation"></nav>
+
+<!-- Main Scroller (4 Sections) -->
+<main class="scroller" id="scroller">
+
+  <!-- ========================================================
+       SECTION 1: HERO (THE IDENTITY MYSTERY)
+       ======================================================== -->
+  <section class="screen" id="s-hero" data-title="01 Mystery">
+    <div class="hero-wrapper">
+      <div class="reveal d1 kicker">
+        <span class="kicker-dot"></span>
+        THE OFFICIAL DISPATCH • CELEBRATING THE BROTHER
+      </div>
+      
+      <h1 class="reveal d2 hero-headline">
+        Happy Birthday to <br>
+        <span class="shimmer-name">Emmanuel</span> <br>
+        (Surname Pending 💖)
+      </h1>
+      
+      <p class="reveal d3 hero-subheadline">
+        Celebrating my sweetest home boy whose last name is still a complete, unsolved mystery.
+      </p>
+
+      <div class="reveal d4 hero-banter-card">
+        Years of genuine friendship, countless arguments, fighting over complete nonsense, and sharing every secret... yet to this very day, <strong>I still don't know your surname</strong>. And honestly? "Emmanuel" is already a full sentence. Keep being the solid brother you are, my guy.
+      </div>
+      <div class="reveal d4" style="margin-top:14px;">
+        <button class="hero-music-cta" id="heroPlayBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>Play Birthday Track 🎶</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="scroll-hint reveal d4" id="scrollHintBtn">
+      <span>Scroll To View Evolution</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SECTION 2: THE EVOLUTION SECTION (SIDE-BY-SIDE)
+       ======================================================== -->
+  <section class="screen" id="s-evolution" data-title="02 Evolution">
+    <div class="evolution-wrapper">
+      <div class="reveal d1 kicker">
+        <span class="kicker-dot"></span>
+        CHAPTER 01 • THE METAMORPHOSIS
+      </div>
+
+      <h2 class="reveal d2 evolution-headline">The Evolution of Emmanuel</h2>
+      <p class="reveal d2 evolution-subhead">From peaceful innocence to certified chief trouble maker.</p>
+
+      <div class="evolution-grid reveal d3">
+        
+        <!-- STAGE 1: BABY BOY -->
+        <div class="evolution-card">
+          <span class="stage-badge">STAGE 01 • THE INNOCENT ERA</span>
+          
+          <div class="photo-frame">
+            <img id="babyImg" src="baby.jpg" alt="Baby Emmanuel - When he was still a good bouncing baby boy">
+            <div class="photo-placeholder-content">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Baby Photo<br>Placeholder</span>
+            </div>
+          </div>
+
+          <label class="upload-photo-btn" title="Click to upload baby photo">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <span>Replace Photo</span>
+            <input type="file" id="babyFileInput" accept="image/*">
+          </label>
+
+          <h3>"When he was still a good bouncing baby boy"</h3>
+          <p>Look at him: peaceful, harmless, and completely incapable of stressing anyone or picking unnecessary fights.</p>
+        </div>
+
+        <!-- STAGE 2: BIG BOY -->
+        <div class="evolution-card">
+          <span class="stage-badge">STAGE 02 • PRESENT DAY</span>
+          
+          <div class="photo-frame">
+            <img id="bigboyImg" src="#" alt="Current Emmanuel photo placeholder - replace with current photo">
+            <div class="photo-placeholder-content">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Current Photo<br>Placeholder</span>
+            </div>
+          </div>
+
+          <label class="upload-photo-btn" title="Click to upload current photo">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <span>Replace Photo</span>
+            <input type="file" id="bigboyFileInput" accept="image/*">
+          </label>
+
+          <h3>"Now a big boy that is wicked to me"</h3>
+          <p>Full grown, sharp mouth, zero mercy in arguments, wicked sense of humor, and will argue for 3 hours even when he knows he is wrong.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SECTION 3: TRIBUTE / THE REAL TALK
+       ======================================================== -->
+  <section class="screen" id="s-tribute" data-title="03 Tribute">
+    <div class="tribute-wrapper">
+      <div class="reveal d1 kicker" style="display:flex; justify-content:center;">
+        <span class="kicker-dot"></span>
+        CHAPTER 02 • THE REAL TALK
+      </div>
+
+      <h2 class="reveal d2 tribute-theme">
+        "Argue. Cut off. Return as one."
+      </h2>
+
+      <div class="tribute-card reveal d3">
+        <div class="quote-glyph">“</div>
+        
+        <div class="tribute-body">
+          Appreciation is the only place to start. He has been the most supportive friend I have ever had — although we always argue a lot, yell over the phone, and cut each other off dramatically, we still come back as one. 
+          <span class="highlight-phrase">What a lovely friend.</span> 
+          Even when I tell him about my problems and life gets heavy, he always finds a way to make me smile and remind me that everything will be fine.
+        </div>
+
+        <div class="tribute-footer">
+          <div class="tribute-status">
+            <span>5:26 PM</span>
+            <span style="color:var(--sandstone); font-weight:700; letter-spacing:-2px;">✓✓</span>
+          </div>
+
+          <button class="react-love-btn" id="loveBtn" aria-label="Send love reaction">
+            <span>❤️</span>
+            <span id="loveCount">Send Love</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SECTION 4: THE FINALE & DROP-OFF (ACCOUNT DETAILS CTA)
+       ======================================================== -->
+  <section class="screen" id="s-finale" data-title="04 Drop-Off">
+    <canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+
+    <div class="finale-wrapper">
+      <div class="reveal d1 kicker">
+        <span class="kicker-dot"></span>
+        CHAPTER 03 • THE FINALE
+      </div>
+
+      <h2 class="reveal d2 finale-sendoff">
+        Once again, <br>
+        <span class="glow-name">happy birthday to youuuuuuu</span> 🎂
+      </h2>
+
+      <p class="reveal d3 finale-sub">
+        My home boy, my brother, my Emmanuel. Wishing you long life, heavy pockets, peace of mind, and fewer wicked arguments this year.
+      </p>
+
+      <!-- The Interactive Account Card -->
+      <div class="reveal d4 account-form-card">
+        
+        <!-- Form View (For Emmanuel to fill in) -->
+        <div id="accountFormView">
+          <div class="card-header-label">FILL IN YOUR ACCOUNT NUMBER HERE</div>
+          <h4>Claim Your Birthday Bag</h4>
+          
+          <div class="input-field-group">
+            <label for="bankInput">Bank Name</label>
+            <input type="text" id="bankInput" placeholder="e.g. Opay, Kuda, GTBank, Access...">
+            
+            <div class="quick-bank-chips">
+              <span class="chip-btn" data-bank="Opay">Opay</span>
+              <span class="chip-btn" data-bank="Kuda">Kuda</span>
+              <span class="chip-btn" data-bank="GTBank">GTBank</span>
+              <span class="chip-btn" data-bank="Access Bank">Access</span>
+              <span class="chip-btn" data-bank="Zenith Bank">Zenith</span>
+              <span class="chip-btn" data-bank="Moniepoint">Moniepoint</span>
+            </div>
+          </div>
+
+          <div class="input-field-group">
+            <label for="acctInput">10-Digit Account Number</label>
+            <input type="text" id="acctInput" placeholder="e.g. 0123456789" maxlength="10" inputmode="numeric">
+          </div>
+
+          <div class="input-field-group">
+            <label for="nameInput">Account Name</label>
+            <input type="text" id="nameInput" placeholder="Account Name" value="Emmanuel">
+          </div>
+
+          <button class="submit-credit-btn" id="claimFundsBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <span>Claim Birthday Funds</span>
+          </button>
+        </div>
+
+        <!-- Confirmed Display View (When Account is Entered) -->
+        <div class="display-vault-box" id="accountDisplayView">
+          <div class="card-header-label" style="color:var(--sandstone);">BIRTHDAY FUNDS READY FOR TRANSFER</div>
+          <h4>Send Emmanuel Birthday Blessings</h4>
+
+          <div class="spec-summary">
+            <div class="spec-row">
+              <span class="spec-key">Bank:</span>
+              <span class="spec-val" id="valBank">Opay</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Account No:</span>
+              <span class="spec-val" id="valAcct">0123456789</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Name:</span>
+              <span class="spec-val" id="valName">Emmanuel</span>
+            </div>
+          </div>
+
+          <div class="vault-actions">
+            <button class="vault-btn primary" id="copyDetailsBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copy Account No</span>
+            </button>
+            <button class="vault-btn" id="shareVaultBtn" title="Copy shareable link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                <polyline points="16 6 12 2 8 6"></polyline>
+                <line x1="12" y1="2" x2="12" y2="15"></line>
+              </svg>
+              <span>Share Link</span>
+            </button>
+            <button class="vault-btn" id="editVaultBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+              </svg>
+              <span>Edit</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Copied Toast Feedback -->
+<div class="toast" id="toast">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="20 6 9 17 4 12"></polyline>
+  </svg>
+  <span id="toastMsg">Action completed!</span>
+</div>
+
+<script>
+  /* ==========================================================
+     1. COLOR PALETTE CONFIG & AMBIENT SPOTLIGHT
+     ========================================================== */
+  const PALETTE = {
+    sandstone: '#D7CBBE',
+    gold: '#DEB586',
+    driftwood: '#645A4E',
+    ivory: '#FAF7F2'
+  };
+
+  const spotlight = document.getElementById('spotlight');
+  window.addEventListener('pointermove', (e) => {
+    if (spotlight) {
+      spotlight.style.left = `${e.clientX}px`;
+      spotlight.style.top = `${e.clientY}px`;
+    }
+  }, { passive: true });
+
+  /* ==========================================================
+     2. NAVIGATION & INTERSECTION OBSERVER (4 SECTIONS)
+     ========================================================== */
+  const screens = Array.from(document.querySelectorAll('.screen'));
+  const stageNav = document.getElementById('stageNav');
+
+  screens.forEach((s, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'stage-dot';
+    dot.dataset.index = i;
+    dot.setAttribute('data-label', s.dataset.title || `0${i + 1}`);
+    dot.setAttribute('role', 'button');
+    dot.setAttribute('tabindex', '0');
+    stageNav.appendChild(dot);
+  });
+
+  const dots = Array.from(stageNav.children);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const idx = screens.indexOf(entry.target);
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        dots.forEach(d => d.classList.remove('active'));
+        if (dots[idx]) dots[idx].classList.add('active');
+
+        if (entry.target.id === 's-finale') {
+          triggerConfetti();
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+
+  screens.forEach(s => observer.observe(s));
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      screens[dot.dataset.index].scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  const scrollHintBtn = document.getElementById('scrollHintBtn');
+  if (scrollHintBtn) {
+    scrollHintBtn.addEventListener('click', () => {
+      screens[1].scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  /* ==========================================================
+     3. BESPOKE CONFETTI ENGINE
+     ========================================================== */
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let animationId = null;
+
+  function resizeCanvas() {
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  class Particle {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      const colors = [PALETTE.sandstone, PALETTE.gold, PALETTE.driftwood, PALETTE.ivory];
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+      this.size = Math.random() * 8 + 4;
+      this.speedX = (Math.random() - 0.5) * 16;
+      this.speedY = Math.random() * -14 - 4;
+      this.gravity = 0.38;
+      this.rotation = Math.random() * 360;
+      this.rotSpeed = (Math.random() - 0.5) * 12;
+      this.opacity = 1;
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.speedY += this.gravity;
+      this.speedX *= 0.98;
+      this.rotation += this.rotSpeed;
+      this.opacity -= 0.007;
+    }
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate((this.rotation * Math.PI) / 180);
+      ctx.globalAlpha = Math.max(0, this.opacity);
+      ctx.fillStyle = this.color;
+      ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size * 1.5);
+      ctx.restore();
+    }
+  }
+
+  function triggerConfetti() {
+    resizeCanvas();
+    const count = 90;
+    const originX = canvas.width / 2;
+    const originY = canvas.height * 0.4;
+    for (let i = 0; i < count; i++) {
+      particles.push(new Particle(originX, originY));
+    }
+    if (!animationId) animateConfetti();
+    playPartyHorn();
+    playChime(587.33);
+  }
+
+  function animateConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.update();
+      p.draw();
+      if (p.opacity <= 0 || p.y > canvas.height + 50) {
+        particles.splice(i, 1);
+      }
+    }
+    if (particles.length > 0) {
+      animationId = requestAnimationFrame(animateConfetti);
+    } else {
+      animationId = null;
+    }
+  }
+
+  document.getElementById('headerCelebrateBtn').addEventListener('click', () => {
+    triggerConfetti();
+    screens[3].scrollIntoView({ behavior: 'smooth' });
+  });
+
+  /* ==========================================================
+     4. ACTUAL AUDIO SYSTEM (HAPPY BIRTHDAY TRACK & SFX)
+     ========================================================== */
+  const bgMusic = document.getElementById('bgMusic');
+  const celebrateAudio = document.getElementById('celebrateAudio');
+  const audioToggleBtn = document.getElementById('audioToggleBtn');
+  const audioStatusText = document.getElementById('audioStatusText');
+  const heroPlayBtn = document.getElementById('heroPlayBtn');
+  let isMusicPlaying = false;
+
+  function playMusic() {
+    bgMusic.play().then(() => {
+      isMusicPlaying = true;
+      audioToggleBtn.classList.add('active');
+      audioStatusText.textContent = 'Music: Playing';
+      if (heroPlayBtn) heroPlayBtn.style.display = 'none';
+      showToast('Now Playing: Happy Birthday 🎵');
+    }).catch(err => {
+      console.log('Audio autoplay prevented:', err);
+    });
+  }
+
+  function pauseMusic() {
+    bgMusic.pause();
+    isMusicPlaying = false;
+    audioToggleBtn.classList.remove('active');
+    audioStatusText.textContent = 'Music: Paused';
+  }
+
+  function toggleMusic() {
+    if (isMusicPlaying) {
+      pauseMusic();
+    } else {
+      playMusic();
+    }
+  }
+
+  function playPartyHorn() {
+    try {
+      celebrateAudio.currentTime = 0;
+      celebrateAudio.play().catch(() => {});
+    } catch(e) {}
+  }
+
+  audioToggleBtn.addEventListener('click', toggleMusic);
+  if (heroPlayBtn) {
+    heroPlayBtn.addEventListener('click', playMusic);
+  }
+
+  // Backup fallback chime for light taps
+  let audioCtx = null;
+  function playChime(freq = 587.33) {
+    try {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.8);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.8);
+    } catch(e) {}
+  }
+
+  /* ==========================================================
+     5. PHOTO REPLACEMENT / UPLOAD SYSTEM
+     ========================================================== */
+  function setupPhotoUpload(inputId, imgId, storageKey, defaultSrc = '') {
+    const input = document.getElementById(inputId);
+    const img = document.getElementById(imgId);
+    
+    const saved = localStorage.getItem(storageKey);
+    if (saved) {
+      img.src = saved;
+    } else if (defaultSrc) {
+      img.src = defaultSrc;
+    }
+
+    input.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          img.src = evt.target.result;
+          try {
+            localStorage.setItem(storageKey, evt.target.result);
+          } catch(err) {}
+          showToast('Photo updated successfully!');
+          playPartyHorn();
+    playChime(659.25);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  }
+
+  setupPhotoUpload('babyFileInput', 'babyImg', 'emmanuel_baby_photo_v3', 'baby.jpg');
+  setupPhotoUpload('bigboyFileInput', 'bigboyImg', 'emmanuel_bigboy_photo_v3', '');
+
+  /* ==========================================================
+     6. SEND LOVE REACTION
+     ========================================================== */
+  const loveBtn = document.getElementById('loveBtn');
+  const loveCount = document.getElementById('loveCount');
+  let loves = parseInt(localStorage.getItem('emmanuel_love_count') || '0', 10);
+
+  if (loves > 0) {
+    loveCount.textContent = `❤️ ${loves} Sent`;
+  }
+
+  loveBtn.addEventListener('click', () => {
+    loves++;
+    localStorage.setItem('emmanuel_love_count', loves);
+    loveCount.textContent = `❤️ ${loves} Sent`;
+    playChime(783.99);
+
+    const heart = document.createElement('div');
+    heart.className = 'floating-heart';
+    heart.textContent = '❤️';
+    const rect = loveBtn.getBoundingClientRect();
+    heart.style.left = `${rect.left + rect.width / 2 + (Math.random() - 0.5) * 40}px`;
+    heart.style.top = `${rect.top}px`;
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 2200);
+  });
+
+  /* ==========================================================
+     7. SECTION 4: ACCOUNT DETAILS CTA & CONFIRMATION
+     ========================================================== */
+  const accountFormView = document.getElementById('accountFormView');
+  const accountDisplayView = document.getElementById('accountDisplayView');
+  const bankInput = document.getElementById('bankInput');
+  const acctInput = document.getElementById('acctInput');
+  const nameInput = document.getElementById('nameInput');
+  const claimFundsBtn = document.getElementById('claimFundsBtn');
+  
+  const valBank = document.getElementById('valBank');
+  const valAcct = document.getElementById('valAcct');
+  const valName = document.getElementById('valName');
+  const copyDetailsBtn = document.getElementById('copyDetailsBtn');
+  const shareVaultBtn = document.getElementById('shareVaultBtn');
+  const editVaultBtn = document.getElementById('editVaultBtn');
+
+  // Check URL params (?bank=...&acct=...&name=...)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('acct')) {
+    localStorage.setItem('emmanuel_bank', params.get('bank') || 'Opay');
+    localStorage.setItem('emmanuel_acct', params.get('acct'));
+    localStorage.setItem('emmanuel_name', params.get('name') || 'Emmanuel');
+  }
+
+  function getStoredBank() {
+    return {
+      bank: localStorage.getItem('emmanuel_bank') || '',
+      acct: localStorage.getItem('emmanuel_acct') || '',
+      name: localStorage.getItem('emmanuel_name') || 'Emmanuel'
+    };
+  }
+
+  function updateCardState() {
+    const data = getStoredBank();
+    if (data.acct && data.acct.trim().length > 0) {
+      valBank.textContent = data.bank || 'Bank';
+      valAcct.textContent = data.acct;
+      valName.textContent = data.name || 'Emmanuel';
+      accountFormView.style.display = 'none';
+      accountDisplayView.classList.add('active');
+    } else {
+      bankInput.value = data.bank;
+      acctInput.value = '';
+      nameInput.value = data.name || 'Emmanuel';
+      accountDisplayView.classList.remove('active');
+      accountFormView.style.display = 'block';
+    }
+  }
+
+  // Bank Chips
+  document.querySelectorAll('.chip-btn').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.chip-btn').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      bankInput.value = chip.dataset.bank;
+      playChime(523.25);
+    });
+  });
+
+  // Submit / Claim Birthday Funds
+  claimFundsBtn.addEventListener('click', () => {
+    const bank = bankInput.value.trim() || 'Bank';
+    const acct = acctInput.value.trim();
+    const name = nameInput.value.trim() || 'Emmanuel';
+
+    if (!acct) {
+      showToast('Please enter your account number!');
+      acctInput.focus();
+      return;
+    }
+
+    localStorage.setItem('emmanuel_bank', bank);
+    localStorage.setItem('emmanuel_acct', acct);
+    localStorage.setItem('emmanuel_name', name);
+
+    updateCardState();
+    triggerConfetti();
+    showToast('Birthday Funds Activated! 🎉 Details ready to copy.');
+    playChime(659.25);
+  });
+
+  // Edit Button
+  editVaultBtn.addEventListener('click', () => {
+    const data = getStoredBank();
+    bankInput.value = data.bank;
+    acctInput.value = data.acct;
+    nameInput.value = data.name;
+    accountDisplayView.classList.remove('active');
+    accountFormView.style.display = 'block';
+    acctInput.focus();
+  });
+
+  // Copy Account Number
+  copyDetailsBtn.addEventListener('click', () => {
+    const textToCopy = valAcct.textContent.trim();
+    copyText(textToCopy, `Copied ${textToCopy} to clipboard!`);
+  });
+
+  // Share Link
+  shareVaultBtn.addEventListener('click', () => {
+    const data = getStoredBank();
+    const shareUrl = `${window.location.origin}${window.location.pathname}?bank=${encodeURIComponent(data.bank)}&acct=${encodeURIComponent(data.acct)}&name=${encodeURIComponent(data.name)}`;
+    copyText(shareUrl, 'Shareable link copied to clipboard!');
+  });
+
+  function copyText(text, msg) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(msg);
+        playChime(880);
+      }).catch(() => fallbackCopy(text, msg));
+    } else {
+      fallbackCopy(text, msg);
+    }
+  }
+
+  function fallbackCopy(text, msg) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+    showToast(msg);
+    playChime(880);
+  }
+
+  // Toast
+  const toast = document.getElementById('toast');
+  const toastMsg = document.getElementById('toastMsg');
+  let toastTimer = null;
+
+  function showToast(msg) {
+    if (toastTimer) clearTimeout(toastTimer);
+    toastMsg.textContent = msg;
+    toast.classList.add('show');
+    toastTimer = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2800);
+  }
+
+  // Initialize
+  updateCardState();
+</script>
+
+</body>
+</html>
