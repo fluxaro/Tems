@@ -1019,6 +1019,12 @@
     transform: scale(1.04);
   }
 
+  .hero-music-cta.active {
+    background: rgba(215, 203, 190, 0.22);
+    border-color: var(--sandstone);
+    color: #FFF;
+  }
+
   .hero-music-cta svg {
     stroke: currentColor;
   }
@@ -1049,10 +1055,10 @@
   </div>
   <div class="nav-actions">
     <!-- Audio Elements -->
-    <audio id="bgMusic" src="happy-birthday.wav" loop preload="auto"></audio>
+    <audio id="bgMusic" src="song.mp3" loop preload="auto"></audio>
     <audio id="celebrateAudio" src="celebrate.wav" preload="auto"></audio>
 
-    <button class="nav-btn" id="audioToggleBtn" title="Play birthday track" aria-label="Toggle birthday music">
+    <button class="nav-btn active" id="audioToggleBtn" title="Toggle background music" aria-label="Toggle background music">
       <div class="sound-bars" id="soundBars">
         <span></span><span></span><span></span><span></span>
       </div>
@@ -1060,7 +1066,7 @@
         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
         <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
       </svg>
-      <span id="audioStatusText">Play Birthday Song</span>
+      <span id="audioStatusText">Music: On</span>
     </button>
     <button class="nav-btn" id="headerCelebrateBtn" aria-label="Celebrate">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1101,11 +1107,11 @@
         Years of genuine friendship, countless arguments, fighting over complete nonsense, and sharing every secret... yet to this very day, <strong>I still don't know your surname</strong>. And honestly? "Emmanuel" is already a full sentence. Keep being the solid brother you are, my guy.
       </div>
       <div class="reveal d4" style="margin-top:14px;">
-        <button class="hero-music-cta" id="heroPlayBtn">
+        <button class="hero-music-cta active" id="heroPlayBtn" title="Toggle Tems - Me & U background music">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="5 3 19 12 5 21 5 3"></polygon>
           </svg>
-          <span>Play Birthday Track 🎶</span>
+          <span>Tems — Me & U (Playing)</span>
         </button>
       </div>
     </div>
@@ -1247,7 +1253,7 @@
 
       <h2 class="reveal d2 finale-sendoff">
         Once again, <br>
-        <span class="glow-name">happy birthday to youuuuuuu</span> 🎂
+        <span class="glow-name">happy birthday to youuuuuuu</span>
       </h2>
 
       <p class="reveal d3 finale-sub">
@@ -1504,39 +1510,58 @@
   });
 
   /* ==========================================================
-     4. ACTUAL AUDIO SYSTEM (HAPPY BIRTHDAY TRACK & SFX)
+     4. ACTUAL AUDIO SYSTEM (TEMS - ME & U & SFX)
      ========================================================== */
   const bgMusic = document.getElementById('bgMusic');
   const celebrateAudio = document.getElementById('celebrateAudio');
   const audioToggleBtn = document.getElementById('audioToggleBtn');
   const audioStatusText = document.getElementById('audioStatusText');
   const heroPlayBtn = document.getElementById('heroPlayBtn');
-  let isMusicPlaying = false;
+  let isMusicPlaying = true;
+
+  function updateAudioUI(playing) {
+    if (playing) {
+      audioToggleBtn.classList.add('active');
+      audioStatusText.textContent = 'Music: On';
+      if (heroPlayBtn) {
+        heroPlayBtn.classList.add('active');
+        const span = heroPlayBtn.querySelector('span');
+        if (span) span.textContent = 'Tems — Me & U (Playing)';
+      }
+    } else {
+      audioToggleBtn.classList.remove('active');
+      audioStatusText.textContent = 'Music: Off';
+      if (heroPlayBtn) {
+        heroPlayBtn.classList.remove('active');
+        const span = heroPlayBtn.querySelector('span');
+        if (span) span.textContent = 'Play Tems — Me & U';
+      }
+    }
+  }
 
   function playMusic() {
+    isMusicPlaying = true;
+    updateAudioUI(true);
     bgMusic.play().then(() => {
-      isMusicPlaying = true;
-      audioToggleBtn.classList.add('active');
-      audioStatusText.textContent = 'Music: Playing';
-      if (heroPlayBtn) heroPlayBtn.style.display = 'none';
-      showToast('Now Playing: Happy Birthday 🎵');
+      // Audio playback successfully active
     }).catch(err => {
-      console.log('Audio autoplay prevented:', err);
+      console.log('Autoplay waiting for first user gesture:', err);
     });
   }
 
   function pauseMusic() {
-    bgMusic.pause();
     isMusicPlaying = false;
-    audioToggleBtn.classList.remove('active');
-    audioStatusText.textContent = 'Music: Paused';
+    bgMusic.pause();
+    updateAudioUI(false);
   }
 
   function toggleMusic() {
-    if (isMusicPlaying) {
+    if (!bgMusic.paused) {
       pauseMusic();
+      showToast('Music: Paused');
     } else {
       playMusic();
+      showToast('Now Playing: Tems — Me & U');
     }
   }
 
@@ -1547,9 +1572,32 @@
     } catch(e) {}
   }
 
-  audioToggleBtn.addEventListener('click', toggleMusic);
+  // Attempt initial playback immediately
+  playMusic();
+
+  // Seamless user gesture unlock if browser blocked initial unmuted autoplay
+  const unlockAudio = () => {
+    if (isMusicPlaying && bgMusic.paused) {
+      bgMusic.play().then(() => {
+        updateAudioUI(true);
+      }).catch(() => {});
+    }
+  };
+
+  ['click', 'touchstart', 'pointerdown', 'keydown', 'scroll', 'wheel'].forEach(evt => {
+    window.addEventListener(evt, unlockAudio, { passive: true, once: true });
+  });
+
+  audioToggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMusic();
+  });
+
   if (heroPlayBtn) {
-    heroPlayBtn.addEventListener('click', playMusic);
+    heroPlayBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMusic();
+    });
   }
 
   // Backup fallback chime for light taps
@@ -1711,7 +1759,7 @@
 
     updateCardState();
     triggerConfetti();
-    showToast('Birthday Funds Activated! 🎉 Details ready to copy.');
+    showToast('Birthday Funds Activated! Details ready to copy.');
     playChime(659.25);
   });
 
