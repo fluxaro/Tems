@@ -54,66 +54,16 @@
     color: var(--bg-base);
   }
 
-  /* Ambient Mesh Lighting */
+  /* Ambient High-Performance Mesh Lighting */
   .ambient-mesh {
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    overflow: hidden;
-  }
-
-  .ambient-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.22;
-    animation: orbFloat 22s infinite ease-in-out alternate;
-  }
-
-  .orb-1 {
-    width: 48vw;
-    height: 48vw;
-    top: -10vw;
-    left: -10vw;
-    background: radial-gradient(circle, #3D271A 0%, transparent 70%);
-  }
-
-  .orb-2 {
-    width: 55vw;
-    height: 55vw;
-    bottom: -10vw;
-    right: -10vw;
-    background: radial-gradient(circle, #22160E 0%, transparent 70%);
-    animation-delay: -8s;
-    animation-duration: 26s;
-  }
-
-  .cursor-spotlight {
-    position: fixed;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(215, 203, 190, 0.04) 0%, transparent 70%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    transition: opacity 0.5s ease;
-  }
-
-  .grain {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 2;
-    opacity: 0.032;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  }
-
-  @keyframes orbFloat {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(3vw, 4vh) scale(1.06); }
-    100% { transform: translate(-4vw, 2vh) scale(0.96); }
+    background: 
+      radial-gradient(circle at 18% 15%, rgba(61, 39, 26, 0.42) 0%, transparent 55%),
+      radial-gradient(circle at 82% 85%, rgba(34, 22, 14, 0.48) 0%, transparent 60%),
+      #0B0907;
   }
 
   /* Top Navigation Bar */
@@ -122,15 +72,13 @@
     top: 0;
     left: 0;
     right: 0;
-    padding: 18px 36px;
+    padding: 16px 36px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 60;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: linear-gradient(180deg, rgba(11, 9, 7, 0.85) 0%, transparent 100%);
-    border-bottom: 1px solid rgba(215, 203, 190, 0.07);
+    background: rgba(11, 9, 7, 0.94);
+    border-bottom: 1px solid rgba(215, 203, 190, 0.08);
   }
 
   .nav-logo {
@@ -151,7 +99,7 @@
   }
 
   .nav-btn {
-    background: rgba(24, 18, 12, 0.6);
+    background: rgba(24, 18, 12, 0.85);
     border: 1px solid var(--card-border);
     color: var(--text-sand);
     padding: 8px 16px;
@@ -163,8 +111,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-    backdrop-filter: blur(10px);
+    transition: all 0.25s ease;
   }
 
   .nav-btn:hover {
@@ -181,31 +128,24 @@
     font-weight: 600;
   }
 
-  /* Scroller & Story Sections */
+  /* Natural, High-Performance Story Scroller */
   .scroller {
-    height: 100dvh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+    width: 100%;
+    min-height: 100vh;
     position: relative;
     z-index: 10;
-    scrollbar-width: none;
-  }
-
-  .scroller::-webkit-scrollbar {
-    display: none;
   }
 
   .screen {
+    min-height: 100vh;
     min-height: 100dvh;
-    height: 100dvh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 90px 24px 60px;
+    padding: 100px 24px 80px;
     text-align: center;
   }
 
@@ -220,8 +160,7 @@
     gap: 14px;
     z-index: 50;
     padding: 14px 10px;
-    background: rgba(18, 14, 10, 0.55);
-    backdrop-filter: blur(16px);
+    background: rgba(18, 14, 10, 0.88);
     border-radius: 40px;
     border: 1px solid rgba(215, 203, 190, 0.12);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -234,7 +173,7 @@
     border-radius: 50%;
     background: rgba(215, 203, 190, 0.25);
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .stage-dot::after {
@@ -269,12 +208,11 @@
     box-shadow: 0 0 12px var(--gold-glow);
   }
 
-  /* Reveal Animations */
+  /* Reveal Animations (GPU Efficient) */
   .reveal {
     opacity: 0;
-    transform: translateY(26px);
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
+    transform: translateY(20px);
+    transition: opacity 0.55s ease-out, transform 0.55s ease-out;
   }
 
   .screen.in-view .reveal {
@@ -282,10 +220,10 @@
     transform: translateY(0);
   }
 
-  .reveal.d1 { transition-delay: 0.08s; }
-  .reveal.d2 { transition-delay: 0.22s; }
-  .reveal.d3 { transition-delay: 0.38s; }
-  .reveal.d4 { transition-delay: 0.54s; }
+  .reveal.d1 { transition-delay: 0.05s; }
+  .reveal.d2 { transition-delay: 0.12s; }
+  .reveal.d3 { transition-delay: 0.20s; }
+  .reveal.d4 { transition-delay: 0.28s; }
 
   /* Minimalist Kicker Badge */
   .kicker {
@@ -294,7 +232,7 @@
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--sandstone);
-    background: rgba(28, 21, 15, 0.6);
+    background: rgba(28, 21, 15, 0.85);
     padding: 6px 18px;
     border-radius: 30px;
     border: 1px solid rgba(215, 203, 190, 0.18);
@@ -302,7 +240,6 @@
     align-items: center;
     gap: 8px;
     margin-bottom: 20px;
-    backdrop-filter: blur(8px);
   }
 
   .kicker-dot {
@@ -356,7 +293,7 @@
   }
 
   .hero-banter-card {
-    background: linear-gradient(150deg, rgba(26, 19, 14, 0.7) 0%, rgba(11, 9, 7, 0.88) 100%);
+    background: linear-gradient(150deg, rgba(26, 19, 14, 0.94) 0%, rgba(14, 11, 8, 0.96) 100%);
     border: 1px solid var(--card-border);
     border-radius: 20px;
     padding: 22px 28px;
@@ -365,7 +302,6 @@
     line-height: 1.65;
     margin: 0 auto;
     max-width: 580px;
-    backdrop-filter: blur(14px);
     box-shadow: var(--shadow-card);
   }
 
@@ -582,12 +518,11 @@
   }
 
   .tribute-card {
-    background: linear-gradient(155deg, rgba(26, 19, 14, 0.75) 0%, rgba(12, 9, 6, 0.92) 100%);
+    background: linear-gradient(155deg, rgba(26, 19, 14, 0.95) 0%, rgba(12, 9, 6, 0.98) 100%);
     border: 1px solid var(--card-border);
     border-radius: 24px;
     padding: 38px 40px 30px;
     box-shadow: var(--shadow-soft);
-    backdrop-filter: blur(22px);
     position: relative;
   }
 
@@ -721,7 +656,6 @@
     padding: 34px 32px;
     box-shadow: var(--shadow-soft), 0 0 50px rgba(0, 0, 0, 0.8);
     text-align: left;
-    backdrop-filter: blur(20px);
     position: relative;
   }
 
@@ -930,12 +864,6 @@
     }
     .screen {
       padding: 85px 18px 50px;
-      height: auto;
-      min-height: 100dvh;
-      scroll-snap-align: none;
-    }
-    .scroller {
-      scroll-snap-type: none;
     }
     .evolution-grid {
       grid-template-columns: 1fr;
@@ -945,7 +873,7 @@
       max-width: 240px;
     }
     .tribute-card {
-      padding: 28px 22px;
+      padding: 28px 20px;
     }
     .account-form-card {
       padding: 26px 20px;
@@ -958,7 +886,7 @@
       opacity: 1;
       transform: none;
     }
-    .ambient-orb, .shimmer-name, .scroll-hint svg {
+    .shimmer-name, .scroll-hint svg {
       animation: none;
     }
   }
@@ -966,17 +894,8 @@
 </head>
 <body>
 
-<!-- Ambient Lighting -->
-<div class="ambient-mesh">
-  <div class="ambient-orb orb-1"></div>
-  <div class="ambient-orb orb-2"></div>
-</div>
-
-<!-- Grain Texture -->
-<div class="grain"></div>
-
-<!-- Cursor Spotlight -->
-<div class="cursor-spotlight" id="spotlight"></div>
+<!-- Ambient Background Lighting -->
+<div class="ambient-mesh"></div>
 
 <!-- Top Navigation -->
 <header class="top-nav">
@@ -1057,7 +976,7 @@
           <span class="stage-badge">STAGE 01 • THE INNOCENT ERA</span>
           
           <div class="photo-frame">
-            <img id="babyImg" src="baby.jpg" alt="Baby Emmanuel - When he was still a good bouncing baby boy">
+            <img id="babyImg" src="baby.jpg" alt="Baby Emmanuel - When he was still a good bouncing baby boy" loading="eager" decoding="async">
             <div class="photo-placeholder-content">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
@@ -1086,7 +1005,7 @@
           <span class="stage-badge">STAGE 02 • PRESENT DAY</span>
           
           <div class="photo-frame">
-            <img id="bigboyImg" src="bigboy.jpg" alt="Current Emmanuel - Now a big boy that is wicked to me">
+            <img id="bigboyImg" src="bigboy.jpg" alt="Current Emmanuel - Now a big boy that is wicked to me" loading="eager" decoding="async">
             <div class="photo-placeholder-content">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
@@ -1283,14 +1202,6 @@
     ivory: '#FAF7F2'
   };
 
-  const spotlight = document.getElementById('spotlight');
-  window.addEventListener('pointermove', (e) => {
-    if (spotlight) {
-      spotlight.style.left = `${e.clientX}px`;
-      spotlight.style.top = `${e.clientY}px`;
-    }
-  }, { passive: true });
-
   /* ==========================================================
      2. NAVIGATION & INTERSECTION OBSERVER (4 SECTIONS)
      ========================================================== */
@@ -1309,6 +1220,7 @@
 
   const dots = Array.from(stageNav.children);
 
+  let finaleConfettiFired = false;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const idx = screens.indexOf(entry.target);
@@ -1317,12 +1229,13 @@
         dots.forEach(d => d.classList.remove('active'));
         if (dots[idx]) dots[idx].classList.add('active');
 
-        if (entry.target.id === 's-finale') {
-          triggerConfetti();
+        if (entry.target.id === 's-finale' && !finaleConfettiFired) {
+          finaleConfettiFired = true;
+          triggerConfetti(false);
         }
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.15 });
 
   screens.forEach(s => observer.observe(s));
 
@@ -1340,7 +1253,7 @@
   }
 
   /* ==========================================================
-     3. BESPOKE CONFETTI ENGINE
+     3. HIGH-PERFORMANCE CONFETTI ENGINE
      ========================================================== */
   const canvas = document.getElementById('confettiCanvas');
   const ctx = canvas.getContext('2d');
@@ -1351,7 +1264,7 @@
     canvas.width = canvas.parentElement.clientWidth;
     canvas.height = canvas.parentElement.clientHeight;
   }
-  window.addEventListener('resize', resizeCanvas);
+  window.addEventListener('resize', resizeCanvas, { passive: true });
   resizeCanvas();
 
   class Particle {
@@ -1360,12 +1273,12 @@
       this.y = y;
       const colors = [PALETTE.sandstone, PALETTE.gold, PALETTE.driftwood, PALETTE.ivory];
       this.color = colors[Math.floor(Math.random() * colors.length)];
-      this.size = Math.random() * 8 + 4;
-      this.speedX = (Math.random() - 0.5) * 16;
-      this.speedY = Math.random() * -14 - 4;
+      this.size = Math.random() * 7 + 4;
+      this.speedX = (Math.random() - 0.5) * 14;
+      this.speedY = Math.random() * -12 - 4;
       this.gravity = 0.38;
       this.rotation = Math.random() * 360;
-      this.rotSpeed = (Math.random() - 0.5) * 12;
+      this.rotSpeed = (Math.random() - 0.5) * 10;
       this.opacity = 1;
     }
     update() {
@@ -1374,7 +1287,7 @@
       this.speedY += this.gravity;
       this.speedX *= 0.98;
       this.rotation += this.rotSpeed;
-      this.opacity -= 0.007;
+      this.opacity -= 0.009;
     }
     draw() {
       ctx.save();
@@ -1382,22 +1295,24 @@
       ctx.rotate((this.rotation * Math.PI) / 180);
       ctx.globalAlpha = Math.max(0, this.opacity);
       ctx.fillStyle = this.color;
-      ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size * 1.5);
+      ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size * 1.4);
       ctx.restore();
     }
   }
 
-  function triggerConfetti() {
+  function triggerConfetti(withSound = true) {
     resizeCanvas();
-    const count = 90;
+    const count = 50;
     const originX = canvas.width / 2;
-    const originY = canvas.height * 0.4;
+    const originY = canvas.height * 0.35;
     for (let i = 0; i < count; i++) {
       particles.push(new Particle(originX, originY));
     }
     if (!animationId) animateConfetti();
-    playPartyHorn();
-    playChime(587.33);
+    if (withSound) {
+      playPartyHorn();
+      playChime(587.33);
+    }
   }
 
   function animateConfetti() {
@@ -1406,7 +1321,7 @@
       const p = particles[i];
       p.update();
       p.draw();
-      if (p.opacity <= 0 || p.y > canvas.height + 50) {
+      if (p.opacity <= 0 || p.y > canvas.height + 30) {
         particles.splice(i, 1);
       }
     }
@@ -1414,6 +1329,7 @@
       animationId = requestAnimationFrame(animateConfetti);
     } else {
       animationId = null;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
   }
 
