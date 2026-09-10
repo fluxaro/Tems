@@ -908,12 +908,6 @@
   <div class="nav-actions">
     <!-- SFX Audio Element -->
     <audio id="celebrateAudio" src="celebrate.wav" preload="auto"></audio>
-    <button class="nav-btn" id="headerCelebrateBtn" aria-label="Celebrate">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"></path>
-      </svg>
-      <span>Celebrate</span>
-    </button>
   </div>
 </header>
 
@@ -1005,7 +999,7 @@
           <span class="stage-badge">STAGE 02 • PRESENT DAY</span>
           
           <div class="photo-frame">
-            <img id="bigboyImg" src="./WhatsApp Image 2026-09-09 at 10.03.04 PM.jpeg" alt="Current Emmanuel - Now a big boy that is wicked to me" loading="eager" decoding="async">
+            <img id="bigboyImg" src="bigboy.jpg" alt="Current Emmanuel - Now a big boy that is wicked to me" loading="eager" decoding="async">
             <div class="photo-placeholder-content">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
@@ -1333,12 +1327,6 @@
     }
   }
 
-  document.getElementById('headerCelebrateBtn').addEventListener('click', () => {
-    triggerConfetti();
-    playPartyHorn();
-    screens[3].scrollIntoView({ behavior: 'smooth' });
-  });
-
   /* ==========================================================
      4. CELEBRATION SFX & AUDIO CHIMES
      ========================================================== */
@@ -1403,7 +1391,7 @@
   }
 
   setupPhotoUpload('babyFileInput', 'babyImg', 'emmanuel_baby_photo_v3', 'baby.jpg');
-  setupPhotoUpload('bigboyFileInput', 'bigboyImg', 'emmanuel_bigboy_photo_v3', 'bigboy.jpg');
+  setupPhotoUpload('bigboyFileInput', 'bigboyImg', 'emmanuel_bigboy_photo_v4', 'bigboy.jpg');
 
   /* ==========================================================
      6. SEND LOVE REACTION
